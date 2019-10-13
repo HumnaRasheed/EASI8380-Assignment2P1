@@ -5,12 +5,13 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Customer(models.Model):
+    objects = None
     name = models.CharField(max_length=50)
     address = models.CharField(max_length=200)
-    cust_number = models.IntegerField(blank=False, null=False)
+    customer_number = models.IntegerField(blank=False, null=False)
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
-    zipcode = models.CharField(max_length=10)
+    zip_code = models.CharField(max_length=10)
     email = models.EmailField(max_length=200)
     cell_phone = models.CharField(max_length=50)
     created_date = models.DateTimeField(
@@ -26,10 +27,11 @@ class Customer(models.Model):
         self.save()
 
     def __str__(self):
-        return str(self.cust_number)
+        return str(self.customer_number)
 
 
 class Investment(models.Model):
+    objects = None
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='investments')
     category = models.CharField(max_length=50)
     description = models.CharField(max_length=200)
@@ -54,6 +56,7 @@ class Investment(models.Model):
 
 
 class Stock(models.Model):
+    objects = None
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='stocks')
     symbol = models.CharField(max_length=10)
     name = models.CharField(max_length=50)

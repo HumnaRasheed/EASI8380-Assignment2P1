@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+{% extends 'portfolio/base.html' %}
+{% block content %}
 
 
     <html>
@@ -47,12 +49,12 @@
             <tbody>
             {% for customer in customers %}
                 <tr>
-                    <td>{{ customer.cust_number }}</td>
+                    <td>{{ customer.customer_number }}</td>
                     <td>{{ customer.name }}</td>
                     <td>{{ customer.address }}</td>
                     <td>{{ customer.city }}</td>
                     <td>{{ customer.state }}</td>
-                    <td>{{ customer.zipcode }}</td>
+                    <td>{{ customer.zip_code }}</td>
                     <td>{{ customer.email }}</td>
                     <td>{{ customer.cell_phone }}</td>
                     <td><a href="{% url 'portfolio:customer_edit' pk=customer.pk %}" class="btn btn-warning">Edit</a>
@@ -72,4 +74,4 @@
     </body>
     </html>
 
-
+{% endblock %}

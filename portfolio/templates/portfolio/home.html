@@ -3,6 +3,8 @@
 {% extends 'portfolio/base.html' %}
 {% load staticfiles %}
 {% block content %}
+
+<html lang="en">
             {% if user.is_authenticated %}
                 <div class="page-container">
 
@@ -63,5 +65,5 @@
                 </div>
             </div>
     </body>
-    </html>
+ </html>
 {% endblock %}

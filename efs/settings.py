@@ -38,9 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #'rest_framework',
+    #'mathfilters',
+    #'django.contrib.humanize',
     'portfolio',
-    'crispy_forms',
-]
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -87,11 +89,16 @@ WSGI_APPLICATION = 'efs.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD':os.environ.get('DB_PASSWORD'),
-        'HOST': os.environ.get('DB_HOST'),
-        'PORT': os.environ.get('DB_PORT'),
+        # 'NAME': os.environ.get('DB_NAME'),
+        'NAME': 'ddh6hcmkn2f21q',
+        # 'USER': os.environ.get('DB_USER'),
+        'USER': 'gozdhweegtzomq',
+        # 'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'PASSWORD': '9714ccab08151387d6be518b1bedc1b46a932402f24095991d33896e19be113c',
+        # 'HOST': os.environ.get('DB_HOST'),
+        'HOST': 'ec2-174-129-27-158.compute-1.amazonaws.com',
+        # 'PORT': os.environ.get('DB_PORT'),
+        'PORT': '5432',
     }
 }
 
@@ -134,7 +141,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+# CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
@@ -150,7 +157,8 @@ STATICFILES_DIRS = (
 )
 
 # Update database configuration with $DATABASE_URL.
-db_from_env = dj_database_url.config()
+# db_from_env = dj_database_url.config()
+db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 DATABASES['default'] = dj_database_url.config()
 

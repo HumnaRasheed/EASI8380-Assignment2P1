@@ -8,7 +8,7 @@ django-taggit==0.22.2
 Django-crispy-forms==1.7.2
 
 django-mathfilters==0.4.0
-djangorestframework==3.6.4
+djangorestframework==3.9.1
 simplejson==3.11.1
 yahoo-finance==1.4.0
 
